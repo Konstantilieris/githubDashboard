@@ -104,10 +104,8 @@ const Post = ({ avatar_url, login, html_url }) => {
         className="mb-3 h-[200px] w-full rounded-lg object-cover"
         alt={`github user ${login}`}
       />
-      <span className="rounded-md border-[1px] border-neutral-500 px-1.5 py-1 text-lg uppercase text-lime-500">
-        {login}
-      </span>
-      <p className="mt-1.5 text-lg font-medium text-lime-200 italic text-center">
+      <span className="  text-lg uppercase text-light-900">{login}</span>
+      <p className="mt-1.5 text-lg font-medium text-neutral-500 text-start">
         {html_url}
       </p>
     </div>
