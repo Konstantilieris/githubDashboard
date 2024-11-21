@@ -84,7 +84,7 @@ const Search = () => {
   const { queryValue, setQueryValue } = useQueryStore();
   const [localState, setLocalState] = useState(queryValue ?? "");
   const handleKeyDownEnter = (e) => {
-    if (e.key === "Enter" && localState) {
+    if (e.key === "Enter") {
       setQueryValue(localState);
     }
   };
@@ -116,7 +116,6 @@ const Search = () => {
         })}
         size={20}
         onClick={() => {
-          if (!localState) return;
           setQueryValue(localState);
         }}
       />
