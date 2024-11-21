@@ -1,10 +1,5 @@
 import "./App.css";
-import {
-  BrowserRouter as Router,
-  Route,
-  Routes,
-  useLocation,
-} from "react-router-dom";
+import { Route, Routes, useLocation } from "react-router-dom";
 import Profile from "./pages/Profile";
 import Repositories from "./pages/Repositories";
 import Followers from "./pages/Followers";
