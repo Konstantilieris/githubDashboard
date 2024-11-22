@@ -13,7 +13,7 @@ function App() {
     location.pathname
   );
   return (
-    <section className="flex flex-col w-full h-screen bg-dark-100 ">
+    <section className="flex flex-col w-full h-screen bg-dark-100 overflow-x-hidden ">
       {showFloatingNav && (
         <div className="w-full flex justify-center bg-neutral-800 items-center py-2">
           {" "}

@@ -40,7 +40,7 @@ const Followers = () => {
 
   return (
     <section className="w-full h-full flex flex-col relative py-8 items-center font-sans px-4 gap-20">
-      <h1 className=" text-light-900 uppercase tracking-widest self-start text-2xl flex items-center gap-2">
+      <h1 className=" text-light-900 uppercase tracking-widest self-start text-2xl flex items-center gap-2 max-md:hidden">
         <IconUsersGroup className="text-light-900" size={28} />
         FOLLOWERS OF <span className="text-lime-500 "> {queryValue}</span>
       </h1>

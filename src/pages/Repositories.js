@@ -51,7 +51,7 @@ const Repositories = () => {
         {" "}
         <IconFileFilled /> Repositories{" "}
       </h1>
-      <div className="flex w-full bg-neural-800 text-light-900 justify-center max-md:mt-2">
+      <div className="flex w-full bg-neural-800 text-light-900 justify-center max-md:hidden">
         <p className="text-2xl flex items-center gap-4">
           Repositories of{" "}
           <span className="uppercase text-lime-500">

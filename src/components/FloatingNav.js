@@ -6,7 +6,7 @@ import useQueryStore from "../store/useQueryStore";
 import { IconUser, IconArrowRight } from "@tabler/icons-react";
 export const FloatingNav = () => {
   return (
-    <nav className="   flex w-fit items-center gap-6 rounded-lg border-[1px] border-neutral-700 bg-neutral-900 p-2 text-sm text-neutral-500 z-[9999]">
+    <nav className="   flex w-fit items-center gap-6 max-md:gap-4 rounded-lg border-[1px] border-neutral-700 bg-neutral-900 p-2 text-sm text-neutral-500 z-[9999]">
       <Logo />
 
       <NavLink link={"/"}>Home</NavLink>
@@ -30,6 +30,7 @@ const Logo = () => {
       height="64px"
       viewBox="-261.12 -261.12 1034.24 1034.24"
       stroke="#ffffff"
+      className="max-md:hidden"
     >
       <g id="SVGRepo_bgCarrier"></g>
       <g id="SVGRepo_tracerCarrier"></g>
@@ -69,7 +70,7 @@ const NavLink = ({ children, link }) => {
         </span>
         <span
           className={cn(
-            "flex h-[20px] items-center text-neutral-50 font-sans",
+            "flex h-[20px] items-center text-neutral-50 font-sans max-md:text-xs",
             { "text-lime-500 font-semibold ": location.pathname === link }
           )}
         >
@@ -90,7 +91,7 @@ const Search = () => {
   };
   return (
     <div
-      className={`relative z-0 flex items-center gap-2 overflow-hidden whitespace-nowrap rounded-lg border-[1px]  pl-1
+      className={`max-md:max-w-[140px] relative z-0 flex items-center gap-2 overflow-hidden whitespace-nowrap rounded-lg border-[1px]  pl-1
       border-neutral-700 font-medium text-neutral-300 transition-all duration-300
       before:absolute before:inset-0
       before:-z-10 before:translate-y-[200%]
@@ -103,7 +104,7 @@ const Search = () => {
       active:scale-100`}
       onKeyDown={handleKeyDownEnter}
     >
-      <IconUser size={20} />
+      <IconUser size={20} className="max-md:hidden" />
       <input
         value={localState}
         onChange={(e) => setLocalState(e.target.value)}

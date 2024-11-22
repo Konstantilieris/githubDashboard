@@ -40,12 +40,12 @@ const Profile = () => {
 
   return (
     <section className="w-full h-full flex flex-col relative py-2 items-center ">
-      <h1 className="text-light-900 font-sans text-xl self-start pl-8 mt-4 uppercase flex items-center gap-2">
+      <h1 className="text-light-900 font-sans text-xl self-start pl-8 mt-4 uppercase flex items-center gap-2 max-md:hidden">
         {" "}
         <IconUserScan size={30} />
         GitHub Profile{" "}
       </h1>
-      <div className="flex w-full bg-neural-800 text-light-900 justify-center">
+      <div className="flex w-full bg-neural-800 text-light-900 justify-center max-md:mt-8">
         <UserCard
           url={data.avatar_url}
           name={data.name}
