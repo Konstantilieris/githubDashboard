@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import { useLocation } from "react-router-dom";
+import { useLocation, Link } from "react-router-dom";
 import { cn } from "../lib/utils";
 import useQueryStore from "../store/useQueryStore";
 import { IconUser, IconArrowRight } from "@tabler/icons-react";
@@ -54,7 +54,7 @@ const Logo = () => {
 const NavLink = ({ children, link }) => {
   const location = useLocation();
   return (
-    <a href={link} rel="nofollow" className="block overflow-hidden">
+    <Link to={link} className="block overflow-hidden">
       <motion.div
         whileHover={{ y: -20 }}
         transition={{ ease: "backInOut", duration: 0.5 }}
@@ -77,7 +77,7 @@ const NavLink = ({ children, link }) => {
           {children}
         </span>
       </motion.div>
-    </a>
+    </Link>
   );
 };
 

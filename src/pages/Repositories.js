@@ -39,9 +39,10 @@ const Repositories = () => {
   if (error) return <ErrorState error={error} />;
   if (!data) return <Loader />;
   const sortedRepositories = [...data].sort((a, b) => {
-    return sortOrder === "asc"
-      ? a.stargazers_count - b.stargazers_count
-      : b.stargazers_count - a.stargazers_count;
+    const aStars = a.stargazers_count || 0; // Fallback to 0 if undefined
+    const bStars = b.stargazers_count || 0; // Fallback to 0 if undefined
+
+    return sortOrder === "asc" ? aStars - bStars : bStars - aStars;
   });
   if (data.length === 0)
     return <EmptyState name={queryValue} title={"Repositories"} />;

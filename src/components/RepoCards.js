@@ -1,8 +1,14 @@
 import { motion } from "framer-motion";
-import { useRef, useState } from "react";
-import { IconUser, IconStar, IconStarFilled } from "@tabler/icons-react";
+import { useRef, useEffect, useState } from "react";
+import { IconUser, IconStarFilled } from "@tabler/icons-react";
+
 const RepoCards = ({ data }) => {
   const [order, setOrder] = useState(data.map((_, index) => index));
+
+  // Update order whenever the data changes
+  useEffect(() => {
+    setOrder(data.map((_, index) => index));
+  }, [data]);
 
   const handleShuffle = () => {
     const orderCopy = [...order];
@@ -11,19 +17,22 @@ const RepoCards = ({ data }) => {
   };
 
   return (
-    <div className="grid place-content-center overflow-hidden  px-8 py-24 text-slate-50 w-full">
-      <div className="relative -ml-[100px] w-[70vw] h-[60vh] md:-ml-[175px] ">
-        {data.map((repo, index) => (
-          <Card
-            key={repo.id}
-            handleShuffle={handleShuffle}
-            description={repo.description}
-            position={order[index]}
-            name={repo.name}
-            owner={repo.owner.login}
-            star={repo.stargazers_count}
-          />
-        ))}
+    <div className="grid place-content-center overflow-hidden px-8 py-24 text-slate-50 w-full">
+      <div className="relative -ml-[100px] w-[70vw] h-[60vh] md:-ml-[175px]">
+        {order.map((position, index) => {
+          const repo = data[position]; // Map visual position to the correct repo
+          return (
+            <Card
+              key={repo.id}
+              handleShuffle={handleShuffle}
+              description={repo.description}
+              position={index}
+              name={repo.name}
+              owner={repo.owner.login}
+              star={repo.stargazers_count}
+            />
+          );
+        })}
       </div>
     </div>
   );
@@ -72,7 +81,7 @@ const Card = ({ handleShuffle, description, position, name, owner, star }) => {
       transition={{
         duration: 0.35,
       }}
-      className={`absolute left-0 top-0 grid h-full w-full select-none  space-y-6 rounded-2xl border border-lime-500  p-6 shadow-xl bg-dark-100/80 backdrop-blur-md  ${
+      className={`absolute left-0 top-0 grid h-full w-full select-none space-y-6 rounded-2xl border border-lime-500 p-6 shadow-xl bg-dark-100/80 backdrop-blur-md ${
         draggable ? "cursor-grab active:cursor-grabbing" : ""
       }`}
     >
